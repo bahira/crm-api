@@ -5,8 +5,6 @@ import datetime
 app = Flask(__name__)
 
 DB_FILE = 'crm.db'
-
-def get_db():
     conn = sqlite3.connect(DB_FILE)
     conn.row_factory = sqlite3.Row
     return conn
@@ -154,6 +152,3 @@ def generate_ai_note():
     conn.commit()
     conn.close()
     return jsonify({'id': note_id, 'note': note})
-
-if __name__ == '__main__':
-    app.run(debug=True)
